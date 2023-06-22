@@ -1,0 +1,14 @@
+<div>
+    <label for = "username">Username:</label>
+    <input type="text" id="username" [(ngModel)]="username">
+
+    <label for = "password">Password:</label>
+    <input type="password" id="password" [(ngModel)]="password">
+
+    <button (click)="login()">Login</button>
+</div>
+
+<div *ngIf="isLoggedIn">
+    <h2>Welcome, {{ username }}!</h2>
+    <p>Your password is: {{ password }}</p>
+  </div>
