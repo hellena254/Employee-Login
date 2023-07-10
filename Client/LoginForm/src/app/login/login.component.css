@@ -1,18 +1,48 @@
-div{
+.container {
     display: flex;
-    flex-direction: column;
-    margin: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
 }
 
-label {
-    margin-bottom: 5px;
-}
+.section {
+    width: 420px;
+    border-radius: 3%;
+    padding: 40px 20px 50px 50px;
+    background-color: rgb(249, 244, 237);
 
-input {
-    margin-bottom: 10px;
-    padding: 5px;
-}
+  }
+  
+  .row{
+    width: auto;
+  }
 
-button {
-    padding: 5px 10px;
-}
+  .form-field{
+    width: 90%;
+  }
+
+  .btn{
+    text-align: center;
+    width: 90%;
+    margin-bottom: 15px;
+  }
+
+  .btn button{
+    width: 100%;
+  }
+
+  .forgot-password {
+    margin-bottom: 15px;
+  }
+
+  .forgot-password a{
+    color: black;
+    font-weight: 500;
+  }
+
+  .sign-up a {
+    color: black;
+    font-weight: 500;
+  }
+  

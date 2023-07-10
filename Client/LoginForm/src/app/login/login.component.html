@@ -1,14 +1,45 @@
-<div>
-    <label for = "username">Username:</label>
-    <input type="text" id="username" [(ngModel)]="username">
+<div class="container">
+    <div class="section">
+      
+        <h2 class="form-title">Employee Sign-in page</h2>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+               <!-- username -->
+            <div class="row">
+                     <mat-form-field class="form-field" appearance="outline">
+                        <mat-label>Username</mat-label>
+                        <input matInput formControlName = 'username' placeholder="username">
+                        <mat-icon matSuffix>face</mat-icon>
+                        <mat-error *ngIf="form.controls['username'].hasError('required')">Name is required</mat-error>
+                    </mat-form-field>                   
+            </div>
+                    
+                    <!-- password  -->
+            <div class="row">
+                    <mat-form-field class="form-field" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput formControlName="password" placeholder="Password" [type]="hidePassword ? 'password' : 'text'">
+                        <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                            {{ hidePassword ? 'visibility_off' : 'visibility' }}
+                        </mat-icon>
+                        <mat-error *ngIf="form.controls['password'].hasError('required')">Password is required</mat-error>
+                        <mat-error *ngIf="form.controls['password'].errors?.['minLength']">The length should be at least 8 characters</mat-error>
+                    </mat-form-field>
+            </div>
 
-    <label for = "password">Password:</label>
-    <input type="password" id="password" [(ngModel)]="password">
+            <div class="forgot-password">
+                <a href="">Forgot Password?</a>           
+            </div>
+                     <!-- button  -->
+            <div class="btn">
+                <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Submit</button>
+            </div>
+        </form>
 
-    <button (click)="login()">Login</button>
+        <div class="sign-up">
+            <p>Don't have an account? <a href="">Sign up </a></p>
+        </div>
+        
+          
+    
+    </div>
 </div>
-
-<div *ngIf="isLoggedIn">
-    <h2>Welcome, {{ username }}!</h2>
-    <p>Your password is: {{ password }}</p>
-  </div>
